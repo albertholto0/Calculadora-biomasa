@@ -74,6 +74,7 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              style: TextStyle(color: Colors.black),
               controller: _diameterController,
               decoration: const InputDecoration(
                 labelText: 'Diámetro normal (cm)',
@@ -81,6 +82,7 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
               keyboardType: TextInputType.number,
             ),
             TextField(
+              style: TextStyle(color: Colors.black),
               controller: _heigthController,
               decoration: const InputDecoration(labelText: 'Altura total (m)'),
               keyboardType: TextInputType.number,
@@ -92,7 +94,10 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
             ),
             const SizedBox(height: 20),
             if (results.isNotEmpty)
-              Text(results, style: const TextStyle(fontSize: 16)),
+              Text(
+                results,
+                style: const TextStyle(fontSize: 16, color: Colors.black),
+              ),
           ],
         ),
       ),

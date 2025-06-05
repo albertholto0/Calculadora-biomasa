@@ -62,6 +62,7 @@ class _BiomassCalculatorState extends State<BiomassCalculator> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              style: TextStyle(color: Colors.black),
               controller: _diameterController,
               decoration: const InputDecoration(labelText: 'Diámetro'),
               keyboardType: TextInputType.number,
@@ -73,7 +74,10 @@ class _BiomassCalculatorState extends State<BiomassCalculator> {
             ),
             const SizedBox(height: 20),
             if (results.isNotEmpty)
-              Text(results, style: const TextStyle(fontSize: 16)),
+              Text(
+                results,
+                style: const TextStyle(fontSize: 16, color: Colors.black),
+              ),
           ],
         ),
       ),
