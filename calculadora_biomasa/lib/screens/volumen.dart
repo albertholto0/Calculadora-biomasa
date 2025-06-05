@@ -46,7 +46,7 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
       a = 0.000054;
       b = 1.990294;
       c = 0.897275;
-    } else if (diametro >= 7.5 && diametro < 32.5) {
+    } else if (diametro >= 39) {
       a = 0.000110;
       b = 1.871412;
       c = 0.828973;
