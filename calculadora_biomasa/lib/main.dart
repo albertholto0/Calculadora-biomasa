@@ -22,7 +22,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Menú',
       theme: appTheme,
       home: HomeScreen(),
     );
