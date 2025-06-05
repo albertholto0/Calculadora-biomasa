@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import '../widget/buttons.dart';
+import '../widget/alerts.dart';
 
 class BiomassCalculator extends StatefulWidget {
   const BiomassCalculator({super.key});
@@ -23,20 +24,13 @@ class _BiomassCalculatorState extends State<BiomassCalculator> {
 
     // Si el diametro es nulo o menor o igual a cero, muestra un diálogo de erro
     if (diameter == null || diameter <= 0) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Error'),
-          content: const Text('Por favor ingresa un diámetro válido.'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('OK'),
-            ),
-          ],
-        ),
-      );
+      alertScreen(context, 'Error', 'Por favor ingresa un diámetro válido.');
       return;
+    } else {
+      if (diameter.isNaN) {
+        alertScreen(context, 'Error', 'El diámetro tiene que ser un número.');
+        return;
+      }
     }
 
     // Dentro de "setState" para actualizar el estado del widget

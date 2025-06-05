@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../widget/buttons.dart';
+import '../widget/alerts.dart';
 
 class VolumenCalculator extends StatefulWidget {
   const VolumenCalculator({super.key});
@@ -20,19 +21,7 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
     final altura = double.tryParse(_heigthController.text);
 
     if (diametro == null || altura == null || diametro <= 0 || altura <= 0) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Error'),
-          content: const Text('Por favor ingresa un diámetro válido.'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('OK'),
-            ),
-          ],
-        ),
-      );
+      alertScreen(context, 'Error', 'Por favor ingresa valores válidos.');
       return;
     }
 
