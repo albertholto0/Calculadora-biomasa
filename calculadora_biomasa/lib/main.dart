@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'vol_biomass.dart';
-import 'volumen.dart';
+import 'screens/vol_biomass.dart';
+import 'screens/volumen.dart';
+import 'configurations/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key}); 
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() {
@@ -23,9 +24,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Menú',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: appTheme,
       home: const MyHomePage(title: 'Calculadora de Biomasa'),
     );
   }
@@ -49,9 +48,10 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context)=>const VolumenCalculator()
+                    MaterialPageRoute(
+                      builder: (context) => const VolumenCalculator(),
                     ),
-                    );
+                  );
                 },
                 child: const Text('Volumen'),
               ),
