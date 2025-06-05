@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import '../widget/buttons.dart';
 
 class BiomassCalculator extends StatefulWidget {
   const BiomassCalculator({super.key});
@@ -68,10 +69,7 @@ class _BiomassCalculatorState extends State<BiomassCalculator> {
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _calculate,
-              child: const Text('Calcular'),
-            ),
+            ButtonWithFunction(text: 'Calcular', onPressed: _calculate),
             const SizedBox(height: 20),
             if (results.isNotEmpty)
               Text(

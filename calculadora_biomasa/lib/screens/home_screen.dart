@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'vol_biomass.dart';
 import 'volumen.dart';
+import '../widget/buttons.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               Image.asset('assets/images/nature.png', height: 120),
               SizedBox(height: 20),
               SizedBox(
-                width: 200,
+                width: 220,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -41,12 +42,12 @@ class HomeScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text('Volumen'),
+                  child: ButtonCommon(text: 'Volumen'),
                 ),
               ),
               const SizedBox(height: 30),
               SizedBox(
-                width: 200,
+                width: 220,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text('Volumen y Biomasa'),
+                  child: ButtonCommon(text: 'Biomasa'),
                 ),
               ),
             ],

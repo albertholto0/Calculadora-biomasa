@@ -1,6 +1,6 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import '../widget/buttons.dart';
 
 class VolumenCalculator extends StatefulWidget {
   const VolumenCalculator({super.key});
@@ -88,10 +88,7 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _calculateVolumen,
-              child: const Text('Calcular'),
-            ),
+            ButtonWithFunction(text: 'Calcular', onPressed: _calculateVolumen),
             const SizedBox(height: 20),
             if (results.isNotEmpty)
               Text(
