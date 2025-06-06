@@ -56,7 +56,9 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cálculo de Volumen')),
+      appBar: AppBar(
+        title: const Text('Cálculo de Volumen', style: TextStyle(fontSize: 20)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

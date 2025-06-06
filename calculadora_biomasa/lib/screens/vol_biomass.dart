@@ -50,7 +50,12 @@ class _BiomassCalculatorState extends State<BiomassCalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cálculo de Volumen y Biomasa')),
+      appBar: AppBar(
+        title: const Text(
+          'Cálculo de Volumen y Biomasa',
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
