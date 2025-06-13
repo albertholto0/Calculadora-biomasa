@@ -3,10 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 final appColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.light,
-  seedColor: const Color.fromARGB(255, 67, 160, 71),
-  surface: const Color.fromARGB(255, 255, 255, 255),
+  seedColor: const Color.fromARGB(255, 56, 142, 60),
   primary: const Color.fromARGB(255, 56, 142, 60),
   secondary: const Color.fromARGB(255, 129, 199, 132),
+  surface: const Color.fromARGB(255, 255, 255, 255),
+  background: const Color.fromARGB(255, 242, 252, 246),
 );
 
 final appTextTheme = GoogleFonts.nunitoTextTheme().copyWith(

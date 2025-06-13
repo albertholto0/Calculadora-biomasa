@@ -12,37 +12,59 @@ class VolumenCalculator extends StatefulWidget {
 
 class _VolumenCalculatorState extends State<VolumenCalculator> {
   final TextEditingController _diameterController = TextEditingController();
-  final TextEditingController _heigthController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
 
   String results = '';
   String alerta = '';
 
   void _calculateVolumen() {
-    final diametro = double.tryParse(_diameterController.text);
-    final altura = double.tryParse(_heigthController.text);
+    double a = 0.0;
+    double b = 0.0;
+    double c = 0.0;
 
+    final diametro = double.tryParse(_diameterController.text);
+    final altura = double.tryParse(_heightController.text);
+
+    // Validación básica de entrada
     if (diametro == null || altura == null || diametro <= 0 || altura <= 0) {
       alertScreen(context, 'Error', 'Por favor ingresa valores válidos.');
+      setState(() => results = '');
       return;
     }
 
-    if (diametro >= 400 && altura > 60) {
+    // Validación de diámetro mínimo
+    if (diametro < 7.5) {
       alertScreen(
         context,
-        "Alerta",
-        "Verifica si el diametro ingresado es el correcto. Además, es dificil encontrar arboles con 60 metros de alto. Verifica si la altura es la correcta",
+        "Error",
+        "El diametro basal debe ser mayor o igual a 7.5 cm",
       );
-    }
-    if (diametro >= 400) {
-      alerta = "Verifica si el diametro ingresado es el correcto";
-    } else {
-      if (altura > 60) {
-        alerta =
-            "Es dificil encontrar arboles con 60 metros de alto. Verifica si la altura es la correcta";
-      }
+      setState(
+        () => results = "El diametro basal debe ser mayor o igual a 7.5 cm",
+      );
+      return;
     }
 
-    double a, b, c;
+    // Alertas de verificación
+    bool mostrarAlerta = false;
+    String mensajeAlerta = '';
+
+    if (diametro >= 400 && altura > 60) {
+      mensajeAlerta =
+          "Verifica si el diametro basal ingresado es el correcto. Además, es dificil encontrar arboles con 60 metros de alto. Verifica si la altura es la correcta";
+      mostrarAlerta = true;
+    } else if (diametro >= 400) {
+      mensajeAlerta = "Verifica si el diametro basal ingresado es el correcto";
+      mostrarAlerta = true;
+    } else if (altura > 60) {
+      mensajeAlerta =
+          "Es dificil encontrar arboles con 60 metros de alto. Verifica si la altura es la correcta";
+      mostrarAlerta = true;
+    }
+
+    if (mostrarAlerta) {
+      alertScreen(context, "Alerta", mensajeAlerta);
+    }
 
     if (diametro >= 7.5 && diametro < 12.5) {
       a = 0.000049;
@@ -88,16 +110,6 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
       a = 0.000567;
       b = 1.555316;
       c = 0.747727;
-    } else {
-      alertScreen(
-        context,
-        "Error",
-        "El diametro debe ser mayor o igual a 7.5 cm",
-      );
-      setState(() {
-        results = "El diametro debe ser mayor o igual a 7.5 cm";
-      });
-      return;
     }
 
     final volumen = a * pow(diametro, b) * pow(altura, c);
@@ -122,26 +134,46 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              style: TextStyle(color: Colors.black),
               controller: _diameterController,
-              decoration: const InputDecoration(
-                labelText: 'Diámetro normal (cm)',
+              decoration: InputDecoration(
+                labelText: 'Diámetro basal (cm)',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                filled: true,
+                fillColor: Colors.green[50],
               ),
               keyboardType: TextInputType.number,
+              style: const TextStyle(color: Colors.black),
             ),
+            const SizedBox(height: 20),
             TextField(
-              style: TextStyle(color: Colors.black),
-              controller: _heigthController,
-              decoration: const InputDecoration(labelText: 'Altura total (m)'),
+              controller: _heightController,
+              decoration: InputDecoration(
+                labelText: 'Altura (m)',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                filled: true,
+                fillColor: Colors.green[50],
+              ),
               keyboardType: TextInputType.number,
+              style: const TextStyle(color: Colors.black),
             ),
             const SizedBox(height: 20),
             ButtonWithFunction(text: 'Calcular', onPressed: _calculateVolumen),
             const SizedBox(height: 20),
             if (results.isNotEmpty)
-              Text(
-                results,
-                style: const TextStyle(fontSize: 16, color: Colors.black),
+              Card(
+                elevation: 5,
+                margin: const EdgeInsets.all(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    results,
+                    style: const TextStyle(fontSize: 16, color: Colors.black),
+                  ),
+                ),
               ),
           ],
         ),

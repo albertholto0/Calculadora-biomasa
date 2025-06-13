@@ -62,20 +62,32 @@ class _BiomassCalculatorState extends State<BiomassCalculator> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              style: TextStyle(color: Colors.black),
               controller: _diameterController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Diámetro basal (cm)',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                filled: true,
+                fillColor: Colors.green[50],
               ),
               keyboardType: TextInputType.number,
+              style: const TextStyle(color: Colors.black),
             ),
             const SizedBox(height: 20),
             ButtonWithFunction(text: 'Calcular', onPressed: _calculate),
             const SizedBox(height: 20),
             if (results.isNotEmpty)
-              Text(
-                results,
-                style: const TextStyle(fontSize: 16, color: Colors.black),
+              Card(
+                elevation: 5,
+                margin: const EdgeInsets.all(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    results,
+                    style: const TextStyle(fontSize: 14, color: Colors.black),
+                  ),
+                ),
               ),
           ],
         ),
