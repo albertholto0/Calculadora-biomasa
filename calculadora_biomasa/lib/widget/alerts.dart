@@ -89,7 +89,7 @@ Future<dynamic> showCredits(BuildContext context) {
           ),
           SizedBox(height: 8),
           Text(
-            'Diana Pelona',
+            'Diana Belén Hernández Luna',
             style: TextStyle(
               color: Colors.black,
               fontSize: 18,
@@ -98,7 +98,7 @@ Future<dynamic> showCredits(BuildContext context) {
             ),
           ),
           Text(
-            'Lógica de cálculo y desarrollo de la aplicación',
+            'Lógica de cálculo',
             style: TextStyle(color: Colors.black54, fontSize: 16),
           ),
           SizedBox(height: 20),
