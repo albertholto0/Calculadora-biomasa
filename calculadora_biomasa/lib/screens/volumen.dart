@@ -44,18 +44,50 @@ class _VolumenCalculatorState extends State<VolumenCalculator> {
 
     double a, b, c;
 
-    if (diametro >= 7.5 && diametro < 32.5) {
-      a = 0.000026;
-      b = 2.129789;
-      c = 0.984286;
-    } else if (diametro >= 32.5 && diametro < 39) {
-      a = 0.000054;
-      b = 1.990294;
-      c = 0.897275;
-    } else if (diametro >= 39) {
-      a = 0.000110;
-      b = 1.871412;
-      c = 0.828973;
+    if (diametro >= 7.5 && diametro < 12.5) {
+      a = 0.000049;
+      b = 2.054972;
+      c = 0.877809;
+    } else if (diametro >= 12.5 && diametro < 17.5) {
+      a = 0.000337;
+      b = 1.125412;
+      c = 1.079209;
+    } else if (diametro >= 17.5 && diametro < 22.5) {
+      a = 0.000066;
+      b = 1.995349;
+      c = 0.830587;
+    } else if (diametro >= 22.5 && diametro < 27.5) {
+      a = 0.000069;
+      b = 2.071854;
+      c = 0.725100;
+    } else if (diametro >= 27.5 && diametro < 32.5) {
+      a = 0.000002;
+      b = 2.726720;
+      c = 1.160786;
+    } else if (diametro >= 32.5 && diametro < 37.5) {
+      a = 0.000027;
+      b = 2.328781;
+      c = 0.746372;
+    } else if (diametro >= 37.5 && diametro < 42.5) {
+      a = 0.000008;
+      b = 2.396769;
+      c = 1.025311;
+    } else if (diametro >= 42.5 && diametro < 47.5) {
+      a = 0.000005;
+      b = 2.637410;
+      c = 0.851540;
+    } else if (diametro >= 47.5 && diametro < 52.5) {
+      a = 0.004006;
+      b = 0.971213;
+      c = 0.804870;
+    } else if (diametro >= 52.5 && diametro < 62.5) {
+      a = 0.000109;
+      b = 1.541462;
+      c = 1.202936;
+    } else if (diametro >= 62.5) {
+      a = 0.000567;
+      b = 1.555316;
+      c = 0.747727;
     } else {
       alertScreen(
         context,
