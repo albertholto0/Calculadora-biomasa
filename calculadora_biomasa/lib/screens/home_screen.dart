@@ -11,7 +11,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Calculadora de Biomasa'),
+        title: const Text(
+          'Calculadora de biomasa y volumen',
+          style: TextStyle(fontSize: 20),
+        ),
         centerTitle: true,
       ),
       body: Container(

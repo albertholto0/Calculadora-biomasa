@@ -64,7 +64,9 @@ class _BiomassCalculatorState extends State<BiomassCalculator> {
             TextField(
               style: TextStyle(color: Colors.black),
               controller: _diameterController,
-              decoration: const InputDecoration(labelText: 'Diámetro'),
+              decoration: const InputDecoration(
+                labelText: 'Diámetro basal (cm)',
+              ),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 20),
